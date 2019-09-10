@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568049114985.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4064655371",
+    "id" : "A7441524",
+    "lastKnownWriteTime" : 1568050537,
+    "last_content_update" : 1568050537850,
+    "path" : "E:/Semester 7/SAFD/LAB/Lab 4/lab4.R",
+    "project_path" : "lab4.R",
+    "properties" : {
+        "cursorPosition" : "14,27",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

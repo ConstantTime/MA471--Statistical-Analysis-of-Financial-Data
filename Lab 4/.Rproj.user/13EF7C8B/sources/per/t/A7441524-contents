@@ -1,0 +1,76 @@
+package(rmisc)
+options(scipen=999)
+df <- read.table('d.txt', header = T)
+
+h <- hist(df[ , 'C'], xlab = 'C returns', main = 'Returns of C' , breaks = 100)
+h <- hist(log(1 + df[, 'C']), xlab = 'C log returns', main = 'log Returns of C' , breaks = 100)
+
+
+h <- hist(df[ , 'SP'], xlab = 'SP returns', main = 'Returns of SP' , breaks = 100)
+h <- hist(log(1 + df[, 'SP']), xlab = 'SP log returns', main = 'log Returns of SP' , breaks = 100)
+
+
+sink("SPreturns.txt")
+cat("Index   Log Returns\n")
+for(i in c(1 : nrow(df))) {
+  
+  cat(i)
+  if(log(1 + df[i , 3]) < 0) {
+    cat('.   ')
+  }
+  else {
+    cat('.    ')
+  }
+  cat(log(1 + df[i , 2]));
+  
+  cat('\n')  
+}
+sink()
+
+
+sink("Creturns.txt")
+cat("Index   Log Returns\n")
+for(i in c(1 : nrow(df))) {
+  
+  cat(i)
+  if(log(1 + df[i , 2]) < 0) {
+    cat('.   ')
+  }
+  else {
+    cat('.    ')
+  }
+  cat(log(1 + df[i , 2]));
+  
+  cat('\n')  
+}
+sink()
+
+
+################################ Question a part - 1 #################################
+
+
+log_c = log(1 + df[, 'C'])
+log_sp = log(1 + df[, 'SP'])
+
+mean_logc = mean(log_c)
+mean_logsp = mean(log_sp)
+
+cat("We can see from the results that the mean of C-rtn comes out to be ")
+cat(-0.0008447986)
+cat(" whereas the mean of Sp-rtn is ")
+cat(-0.0001887621)
+cat("\n")
+
+cat("The mean as we can see comes out to be pretty close to 0\n")
+
+
+
+################################ Part - b ######################################
+# 
+# 
+# function <- mle(p , x , n) {
+#   return(x * log(p) + (n - x) * log(1 - p))
+# }
+
+confidence_c = CI(log_c)
+confidence_sp = CI(log_sp)
